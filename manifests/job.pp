@@ -47,9 +47,9 @@ define cron::job(
   $mode             = '0644', 
   $ensure           = 'present',
   $cronjob_contents = undef,
-  $cronjob_file     = undef,
-  $cronjob_mode     = '0744',
-  $cronjob_owner    = 'root',
+  $cronjob_file     = $command,
+  $cronjob_mode     = $mode,
+  $cronjob_owner    = $user,
 ) {
 
   case $ensure {

@@ -14,11 +14,14 @@
 #   class { 'cron': }
 
 class cron (
-  $package_ensure = 'installed',
+  $command          = undef,
+  $mode             = '0644',
+  $user             = 'root',
+  $package_ensure   = 'installed',
   $cronjob_contents = undef,
-  $cronjob_file     = undef,
-  $cronjob_mode     = '0744',
-  $cronjob_owner    = 'root',
+  $cronjob_file     = $command,
+  $cronjob_mode     = $mode,
+  $cronjob_owner    = $user,
 ) {
   class { '::cron::install': package_ensure => $package_ensure }
   -> class { 'cron::service': }
