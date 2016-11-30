@@ -15,6 +15,9 @@
 
 class cron (
   $package_ensure = 'installed'
+  $cronjob_contents = undef,
+  $cronjob_file     = undef,
+  $cronjob_mode     = '0744',
 ) {
   class { '::cron::install': package_ensure => $package_ensure }
   -> class { 'cron::service': }
