@@ -78,7 +78,7 @@ define cron::job(
     file { "$cronjob_file":
       ensure  => $real_ensure,
       owner   => $cronjob_owner,
-      mode    => $cronjob_mode,
+      mode    => "$cronjob_mode",
       content => $cronjob_contents,
     }
   }
