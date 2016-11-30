@@ -36,8 +36,19 @@
 #       command     => 'puppet doc --modulepath /etc/puppet/modules >/var/www/puppet_docs.mkd';
 #   }
 define cron::job(
-  $command = undef, $minute = '*', $hour = '*', $date = '*', $month = '*', $weekday = '*',
-  $environment = [], $user = 'root', $mode = '0644', $ensure = 'present'
+  $command          = undef, 
+  $minute           = '*', 
+  $hour             = '*', 
+  $date             = '*', 
+  $month            = '*', 
+  $weekday          = '*',
+  $environment      = [], 
+  $user             = 'root', 
+  $mode             = '0644', 
+  $ensure           = 'present',
+  $cronjob_contents = undef,
+  $cronjob_file     = $command,
+  $cronjob_mode     = $mode,
 ) {
 
   case $ensure {
@@ -60,6 +71,15 @@ define cron::job(
       mode    => $mode,
       path    => "/etc/cron.d/${title}",
       content => template( 'cron/job.erb' );
+  }
+
+  if $cronjob_contents {
+    file { "$cronjob_file":
+    ensure  => $real_ensure,
+    user    => $user,
+    mode    => $cronjob_mode,
+    content => $cronjob_contents,
+    }
   }
 }
 
