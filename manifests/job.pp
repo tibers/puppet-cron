@@ -36,7 +36,7 @@
 #       command     => 'puppet doc --modulepath /etc/puppet/modules >/var/www/puppet_docs.mkd';
 #   }
 define cron::job(
-  $command          = undef, 
+  $command, 
   $minute           = '*', 
   $hour             = '*', 
   $date             = '*', 
