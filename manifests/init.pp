@@ -14,7 +14,7 @@
 #   class { 'cron': }
 
 class cron (
-  $package_ensure = 'installed'
+  $package_ensure = 'installed',
   $cronjob_contents = undef,
   $cronjob_file     = undef,
   $cronjob_mode     = '0744',
