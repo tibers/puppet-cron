@@ -5,7 +5,7 @@
   "license": "Apache-2.0",
   "summary": "A module to manage cron jobs via /etc/cron.d",
   "source": "https://github.com/torrancew/puppet-cron",
-  "project_page": "https://forge.puppetlabs.com/torrancew/cron",
+  "project_page": "https://github.com/torrancew/puppet-cron",
   "issues_url": "https://github.com/torrancew/puppet-cron/issues",
   "tags": ["cron"],
   "operatingsystem_support": [
