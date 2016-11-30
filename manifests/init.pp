@@ -19,9 +19,9 @@ class cron (
   $user             = 'root',
   $package_ensure   = 'installed',
   $cronjob_contents = undef,
-  $cronjob_file     = $command,
-  $cronjob_mode     = $mode,
-  $cronjob_owner    = $user,
+  $cronjob_file     = undef,
+  $cronjob_mode     = undef,
+  $cronjob_owner    = undef,
 ) {
   class { '::cron::install': package_ensure => $package_ensure }
   -> class { 'cron::service': }

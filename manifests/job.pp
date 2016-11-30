@@ -47,9 +47,9 @@ define cron::job(
   $mode             = '0644', 
   $ensure           = 'present',
   $cronjob_contents = undef,
-  $cronjob_file     = $command,
-  $cronjob_mode     = $mode,
-  $cronjob_owner    = $user,
+  $cronjob_file     = hiera('cron::job::command, undef'),
+  $cronjob_mode     = hiera('cron::job::mode, undef'),
+  $cronjob_owner    = ihiera('cron::job::user, undef'),
 ) {
 
   case $ensure {
